@@ -1,0 +1,157 @@
+body {
+    background-color: white;
+
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    z-index: -1;
+}
+
+form {
+    margin: auto;
+    max-width: 310px;
+    padding: 10px;
+}
+
+#taskForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+#taskForm .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#taskList {
+    list-style: none;
+    margin: auto;
+    max-width: 640px;
+    padding: 0;
+    margin-bottom: 90px;
+}
+
+#taskList md-list-item .options {
+    display: none;
+}
+
+#taskList md-list-item:hover .options {
+    display: block;
+}
+
+#taskList md-list-item .md-button md-icon {
+    color: gray;
+}
+
+.md-raised.taskSub1.md-secondary.md-button {
+    background-color: gray;
+    color: white;
+    font-weight: 300;
+}
+
+.md-raised.taskSub2.md-secondary.md-button {
+    background-color: #0291D1;
+    color: black;
+    font-weight: 300;
+}
+
+.finder.md-input-has-placeholder.md-input-theme.flex {
+    margin: 0px;
+    height: 24px;
+    flex: 10;
+    padding: 0px;
+    font-size: 15px;
+}
+
+/*md-toolbar md-icon, md-list md-icon{*/
+/*height:20px;*/
+/*width:20px;*/
+/*}*/
+md-toolbar md-input-container .md-input {
+    border-width: 0px;
+    border-style: none;
+}
+
+#task {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#del {
+    float: right;
+    margin: 0px;
+    position: absolute;
+    right: 10px;
+}
+
+#update {
+    float: right;
+    margin: 0px;
+    position: absolute;
+    right: 100px;
+}
+
+button.md-icon-button.md-button.md-ink-ripple {
+    margin: 0px;
+}
+
+.edel {
+    z-index: 1;
+}
+
+#plus {
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 2;
+}
+
+#appName {
+    width: 100%;
+    height: 40px;
+    color: white;
+    margin: 0px;
+    border: 0px;
+    padding: 5px;
+    z-index: 0;
+}
+
+#taskHeader {
+    background-color: green;
+    width: 100%;
+    height: auto;
+    color: red;
+    text-align: center;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    z-index: 1;
+}
+
+.searchSymbol {
+}
+
+.back {
+    color: white;
+    margin-left: 15px;
+
+}
+
+/*#delAll{
+float:right;
+    margin:0px;
+    position:absolute;
+    right:5px;
+
+}
+#delCompleted{
+    float:right;
+    position:absolute;
+    right:90px;
+
+
+} */

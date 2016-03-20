@@ -1,0 +1,84 @@
+<div ng-init="init()">
+
+    <md-toolbar ng-show="!showSearch">
+        <div class="md-toolbar-tools">
+            <h4><span>TO DO APP</span></h4>
+            <span flex></span>
+
+            <md-button class="md-icon-button" aria-label="Search" ng-click="showSearch = !showSearch">
+                <md-icon md-svg-icon="styles/images/ic_search_white_18px.svg">
+                    <md-icon>
+            </md-button>
+            <md-menu>
+                <md-button aria-label="clear menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-svg-icon="styles/images/ic_more_vert_white_18px.svg">
+                        <md-icon>
+                </md-button>
+                <md-menu-content width="1">
+                    <md-menu-item>
+                        <md-button id="delAll" ng-click="deleteAll($event)">Clear All</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button id="delCompleted" ng-click="deleteCompleted($event)">Clear Completed</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <md-toolbar class="md-hue-1" md-whiteframe="2" ng-show="showSearch">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Back">
+                <md-icon md-svg-icon="styles/images/ic_arrow_back_black_18px.svg">
+                    <md-icon>
+            </md-button>
+            <pre flex="1">  </pre>
+            <md-input-container class="finder" md-theme="input" flex="">
+                <label>&nbsp;</label>
+                <input ng-model="search1.title" placeholder="Search Task">
+            </md-input-container>
+            <pre flex="1">  </pre>
+            <md-menu>
+                <md-button aria-label="clear menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-svg-icon="styles/images/ic_more_vert_black_18px.svg">
+                        <md-icon>
+                </md-button>
+                <md-menu-content width="1">
+                    <md-menu-item>
+                        <md-button id="delAll" ng-click="deleteAll()">Clear All</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button id="delCompleted" ng-click="deleteCompleted()">Clear Completed</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+
+    <!-- LIST -->
+    <md-list id="taskList" md-whiteframe="2">
+        <md-list-item id="task" ng-repeat="task in todos | orderBy:'status' | filter:search1">
+            <md-checkbox ng-model="task.status" ng-click="$event.stopPropagation()"
+                         ng-change="updateStatus(task, task.status)"></md-checkbox>
+            <span>{{task.title}}</span>
+            <pre>  -  </pre>
+            <span am-time-ago="task.addedOn"></span>
+            <span flex></span>
+
+            <section class="options">
+                <md-button class="md-icon-button edel" ng-click="deleteTask(task._id)">
+                    <md-icon md-svg-icon="styles/images/ic_close_black_18px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button edel" ng-click="updateTask(task._id)">
+                    <md-icon md-svg-icon="styles/images/ic_edit_black_18px.svg"></md-icon>
+                </md-button>
+            </section>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-list>
+
+    <a id="plus" href="#/task/0">
+        <md-button class="md-fab">
+            <md-icon md-svg-icon="styles/images/ic_add_white_18px.svg"></md-icon>
+        </md-button>
+    </a>
+</div>

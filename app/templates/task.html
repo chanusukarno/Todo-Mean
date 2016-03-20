@@ -1,0 +1,44 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <a href="#/">
+            <md-button class="md-icon-button" aria-label="Back">
+                <md-icon md-svg-icon="styles/images/ic_arrow_back_white_18px.svg"></md-icon>
+            </md-button>
+        </a>
+
+            <h4 class="back" ng-show="add">
+                Add Task
+            </h4>
+            <h4 class="back" ng-show="update">
+                Update Task
+            </h4>
+
+    </div>
+</md-toolbar>
+
+<form md-whiteframe="2">
+    <div id="taskForm">
+
+        <div>
+            <md-input-container class="md-block">
+                <input placeholder="Title" ng-model="task.title" required>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="md-block">
+                <textarea placeholder="Description" ng-model="task.description"></textarea>
+            </md-input-container>
+        </div>
+        <div>
+            <md-checkbox id="status" ng-model="task.status"></md-checkbox>
+            <label for="status">Status</label>
+        </div>
+        <div class="actions">
+            <md-button md-no-ink class="md-raised md-secondary" ng-click="cancel()">Cancel</md-button>
+            <md-button md-no-ink class="md-raised md-primary"
+                       ng-disabled="task.title==null || task.title.trim()==''" ng-click="saveTask(task)">Save
+            </md-button>
+        </div>
+    </div>
+</form>
+
